@@ -1,0 +1,6 @@
+*.pmwir
+bin/
+.*.*
+.*
+.*/
+!.gitignore
