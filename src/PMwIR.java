@@ -106,6 +106,7 @@ public class PMwIR {
 		options.addOption(OptionBuilder.withDescription("Output descriptions of command line options").create("h"));
 		options.addOption(OptionBuilder.withDescription("Indicates an invitation when the input and output").create("i"));
 		options.addOption(OptionBuilder.withDescription("Show debug output").create("d"));
+		options.addOption(OptionBuilder.withDescription("Print information about version").create("v"));
 		options.addOption(OptionBuilder.withArgName("time").hasArg().withDescription("Changes the delay between commands (in ms, default: 100)").create("r"));
 		
 		CommandLineParser parser = new PosixParser();
@@ -115,6 +116,13 @@ public class PMwIR {
 			HelpFormatter hf = new HelpFormatter();
 			hf.printHelp("pMWiR", options);
 			System.out.flush();
+			return;
+		}
+		
+		if(line.hasOption("v")) {
+			System.out.println("Emulator of parallel machine with infinite registers - version 0.1");
+			System.out.flush();
+			return;
 		}
 		
 		if(line.hasOption("p")) {
